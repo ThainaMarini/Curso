@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+<body>
+<form method="post" action="ex3.php"> 
+  Cálculo do seguro do automóvel
+<br/>
+Descrição do Automóvel
+<textarea name="desc" rows="1" cols="30"> </textarea>
+<br/>
+Valor
+<textarea name="Valor" rows="1" cols="30"> </textarea>
+<br/>
+Tipo
+<select name="Tipo">
+	<option value="Passeio">Passeio</option>
+    <option value="Carga">Carga</option>
+    <option value="Motocicleta">Motocicleta</option>
+</select>
+ <br/>
+ Ocorrências/Acréscimos
+ <select name="acrescimos">
+	<option value="Sem">Sem</option>
+	<option value="Seguro">Uso do Seguro</option>
+	<option value="Leve">Acidente Leve</option>
+	<option value="Grave">Acidente Grave</option>
+</select>
+<br/>
+Descontos
+<select name="descontos">
+	<option value="Sem">Sem</option>
+	<option value="semseguro">Não usou seguro</option>
+	<option value="seminfraçoes">Sem infrações</option>
+</select>
+<br/>
+<input type="submit" name="realizar" value="Calcular seguro" /> 
+    
+</select>
+ 
+</form>
+</body>
+</html>

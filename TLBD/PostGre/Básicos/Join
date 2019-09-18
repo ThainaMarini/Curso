@@ -1,0 +1,10 @@
+select v.codvenda, c.nome, v.datavenda, vi.qtde
+from vendas v
+join clientes c
+on v.codcliente = c.codcliente
+join vendasitens vi
+on v.codvenda = vi.codvenda;
+
+select vendas.codvenda, clientes.nome, vendas.datavenda, vendasitens.qtde
+from vendas, clientes, vendasitens
+where vendas.codcliente = clientes.codcliente and vendas.codvenda = vendasitens.codvenda;

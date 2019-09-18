@@ -1,0 +1,27 @@
+Alterar nome do campo da tabela
+alter table <nome da table> change <nome antigo> <nome novo> <tipo>;
+
+Alterar nome da tabela
+rename table <nome antigo> to <nome novo>;
+
+Adicionar campo na tabela
+alter table <nome da tabela> add <nome do campo> <tipo>;
+
+Alterar tipo do campo
+alter table <nome da tabela> modify <nome do campo> <novo tipo>;
+
+Excluir campo 
+alter table <nome da tabela> drop <nome do campo>;
+
+Excluir tabela 
+drop table <nome da tabela>;
+
+chave estrangeira
+create table Notas(
+CodNota int key ,
+CodAluno int,
+Nota1 float(4,2),
+Nota2 float (4,2),
+media float (4,2),
+foreign key  (CodAluno) references
+alunos(CodAluno));

@@ -1,0 +1,183 @@
+					   -- 1:
+					   select p.CodProduto, p.Descricao, c.CodCategoria, c.Nome
+					   from Produtos p, Categorias c
+					   where p.CodCategoria = c.CodCategoria;
+					   
+					   -- 2:
+					   select p.Descricao, c.Nome, p.PrecoVenda
+					   from Produtos p, Categorias c
+					   where p.CodCategoria = c.CodCategoria;
+					   
+					   -- 3:
+					   select p.Descricao, p.PrecoCusto, v.CodVenda
+					   from Produtos p, Vendas v, VendasItens vi
+					   where vi.CodProduto = p.CodProduto and
+					   		 vi.CodVenda = v.CodVenda;
+						
+					   -- 4:
+					   select v.CodVenda, c.CodCliente, c.Nome, v.DataVenda
+					   from Vendas v, Clientes c
+					   where v.CodCliente = c.CodCliente;
+					   
+					   -- 5:
+					   select v.DataVenda, c.Nome, c.Estado
+					   from Vendas v, Clientes c
+					   where V.CodCliente = c.CodCliente;
+					   
+					   -- 6:
+					   select c.Nome, c.Cidade, c.Estado, c.CodCliente, v.DataVenda
+					   from Clientes c, Vendas v
+					   where v.CodCliente = c.CodCliente;
+					   
+					   -- 7:
+					   select p.CodProduto, p.Descricao, vi.Qtde , p.PrecoCusto
+					   from Produtos p, VendasItens vi
+					   where vi.CodProduto = p.CodProduto;
+					   
+					   -- 8:
+					   select v.CodVenda, v.DataVenda, p.Descricao, vi.Qtde
+					   from Vendas v, Produtos p, VendasItens vi
+					   where vi.CodVenda = v.CodVenda and
+					   		 vi.CodProduto = p.CodProduto;
+					  
+					  -- 9:
+					  select c.CodCliente, p.Descricao, vi.Qtde, p.PrecoVenda
+					  from Clientes c, Produtos p, VendasItens vi, Vendas v
+					  where v.CodCliente = c.CodCliente and
+					  		vi.CodVenda = v.CodVenda and
+							vi.CodProduto = p.CodProduto;
+					  
+					  -- 10:
+					  select v.DataVenda, vi.Qtde
+					  from Vendas v, VendasItens vi
+					  where vi.CodVenda = v.CodVenda;
+					  
+					  -- 11:
+					  select p.CodProduto, p.Descricao, c.CodCategoria, c.Nome
+					  from Produtos p, Categorias c
+					  where p.CodCategoria = c.CodCategoria and
+					  		p.PrecoCusto < 20;
+							
+					  -- 12:
+					  select p.Descricao, c.Nome , p.PrecoVenda
+					  from Produtos p, Categorias c
+					  where p.CodCategoria = c.CodCategoria and
+					  		p.PrecoVenda > 50 and p.PrecoVenda < 100;
+					  
+					  -- 13:
+					  select p.Descricao, p.PrecoCusto, p.PrecoVenda
+					  from Produtos p
+					  where p.Descricao like 'CERVEJA%';
+					  
+					  -- 14:
+					  select v.CodVenda, c.CodCliente, c.Nome, v.DataVenda
+					  from Vendas v, Clientes c
+					  where v.CodCliente = c.CodCliente 
+					  		and v.DataVenda >= '2007-10-01'
+							and v.DataVenda <= '2007-10-31';
+							
+					  -- 15:
+					  select v.DataVenda, c.Nome, c.Estado
+					  from Vendas v, Clientes c
+					  where v.CodCliente = c.CodCliente and
+					  		c.Estado = 'SP';
+							
+					  -- 16:
+					  select c.Nome , c.Cidade, c.Estado, c.CodCliente, v.DataVenda
+					  from Clientes c, Vendas v
+					  where v.CodCliente = c.CodCliente and
+					  		c.Estado <> 'SP';
+							
+					  -- 17
+					  select p.CodProduto, vi.Qtde, p.PrecoCusto
+					  from Produtos p, VendasItens vi
+					  where vi.CodProduto = p.CodProduto and
+					  		vi.Qtde > 10 and vi.Qtde < 30;
+							
+					  -- 18
+					  select v.CodVenda, v.DataVenda, vi.Qtde, p.Descricao
+					  from Produtos p, Vendas v, VendasItens vi
+					  where v.DataVenda >= '2007/08/10' and v.DataVenda <= '2007/09/20'
+					  and vi.CodProduto = p.CodProduto and 
+					  	  v.CodVenda = vi.CodVenda;
+						  
+					  -- 19
+					  select c.Nome, p.Descricao, vi.Qtde, p.PrecoVenda
+					  from Produtos p, Clientes c, VendasItens vi, Vendas v
+					  where v.CodCliente = c.CodCliente and
+					  		vi.CodVenda = v.CodVenda and
+							vi.CodProduto = p.CodProduto and
+							c.Cidade = 'SAO JOSE DO RIO PARDO';
+							
+					  -- 20
+					  select v.DataVenda , vi.Qtde
+					  from Vendas v, VendasItens vi, Clientes c
+					  where vi.CodVenda = v.CodVenda and 
+					  		v.CodCliente = c.CodCliente and
+							c.CodCliente = 5;
+					  
+					  -- 21
+					  select p.CodProduto, p.Descricao, vi.Qtde, p.PrecoVenda
+					  from Produtos p, VendasItens vi, Vendas v
+					  where vi.CodProduto = p.CodProduto and
+					  		vi.CodVenda = v.CodVenda and
+					  		v.DataVenda >= '2007/10/01' and 
+							v.DataVenda <= '2007/10/31';
+							
+				      -- 22
+					  select p.CodProduto, p.Descricao, vi.Qtde, p.PrecoVenda
+					  from Produtos p, VendasItens vi, Clientes c, Vendas v
+					  where vi.CodProduto = p.CodProduto  and
+					  		v.CodCliente = c.CodCliente and
+							vi.CodVenda = v.CodVenda and
+							c.Estado = 'MG';
+					  -- 23
+					  select p.CodProduto, p.Descricao, vi.Qtde, p.PrecoVenda
+					  from Produtos p, VendasItens vi, Clientes c, Vendas v
+					  where p.CodProduto = vi.CodProduto and
+					  	   c.CodCliente = v.CodCliente and
+						   vi.CodVenda = v.CodVenda and
+						   v.DataVenda = '2007/12/01' and
+						   v.DataVenda = '2007/12/31' and
+						   c.Estado = 'SP';
+						   
+					  -- 24
+					  select p.Descricao , p.PrecoCusto
+					  from Produtos p, Fornecedores f
+					  where p.CodFornecedor = f.CodFornecedor and
+					  		f.Estado = 'SP';
+							
+					  -- 25
+					  select p.CodProduto, c.Estado, f.Estado
+					  from Fornecedores f, Produtos p, VendasItens vi, Vendas v, Clientes c
+					  where p.CodFornecedor = f.CodFornecedor and
+					  		vi.CodProduto = p.CodProduto and
+							v.CodVenda = vi.CodVenda and
+							v.CodCliente = c.CodCliente and 
+							f.Estado = 'MG' and
+							c.Estado = 'SP';
+							
+					 -- 26
+					 select f.Nome , f.Estado from Fornecedores f;
+					 
+					 -- 27
+					 select p.Descricao , f.Nome
+					 from Produtos p, Fornecedores f
+					 where p.CodFornecedor = f.CodFornecedor;
+					 
+					 -- 28
+					 select p.Descricao, f.Nome
+					 from Produtos p, Fornecedores f
+					 where p.CodFornecedor = f.CodFornecedor and
+					 	   f.Estado = 'RJ';
+						   
+				     -- 29
+					 select c.CodCategoria , c.Nome
+					 from Categorias c;
+					 
+					 -- 30
+					 select f.Nome, p.Descricao , C.CodCategoria
+					 from Fornecedores f, Produtos p, Categorias c
+					 where p.CodFornecedor = f.CodFornecedor and
+					 	   p.CodCategoria = c.CodCategoria;
+						  

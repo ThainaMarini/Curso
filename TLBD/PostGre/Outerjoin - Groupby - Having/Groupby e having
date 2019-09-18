@@ -1,0 +1,71 @@
+CREATE TABLE CLIENTES (
+CODIGO INTEGER,
+NOME VARCHAR(50),
+PRIMARY KEY (CODIGO));
+
+INSERT INTO CLIENTES VALUES (1,'Gustavo viegas'),(2,'Vinicius Andrade'),(3,'Rosangela Mattos');
+
+CREATE TABLE PEDIDOS(
+CODIGO INTEGER,
+CODCLIENTE INTEGER,
+DATA DATE,
+VALOR NUMERIC(10,2),
+PRIMARY KEY (CODIGO),
+FOREIGN KEY (CODCLIENTE)
+REFERENCES CLIENTES (CODIGO));
+
+INSERT INTO PEDIDOS VALUES (1,1,'01-10-02',500),(2,1,'02-10-02',100),(3,2,'01-10-02',600),
+(4,3,'05-01-02',100),(5,3,'10-10-02',300),(6,3,'11-10-02',80);
+
+SELECT * FROM CLIENTES;
+
+select * from pedidos;
+					 -- Quantidade de pedidos por cliente
+					 select codcliente, count(*)
+					 from pedidos
+					 group by codcliente;
+					 
+					 -- Nome dos cliente e maiores pedidos
+					 select c.nome, max(p.valor)
+					 from pedidos p, clientes c
+					 where p.codcliente = c.codigo
+					 group by c.nome;
+					 
+					 -- Nome dos clientes, código e menor valor do pedido
+					 select p.codcliente, c.nome, min(p.valor)
+					 from pedidos p, clientes c
+					 where p.codcliente = c.codigo
+					 group by p.codcliente, c.nome;
+					 
+					 -- nome do cliente com código igual a 1 e média de pedido
+					 select c.nome, avg(p.valor)
+					 from pedidos p, clientes c
+					 where p.codcliente = c.codigo
+					 and c.codigo = 1
+					 group by c.nome;
+					 
+					 -- somente clientes com 2 ou mais pedidos
+					 select codcliente, count(*)
+					 from pedidos
+					 group by codcliente
+					 having count(*) >= 2;
+					 
+					 -- código, nome do cliente onde a média dos pedido é + q 200
+					 select p.codcliente, c.nome, avg(p.valor) as media
+					 from pedidos p, clientes c
+					 where p.codcliente = c.codigo
+					 group by p.codcliente, c.nome
+					 having avg(p.valor) >= 200;
+					 
+					 -- pedidos > 200 com data a partir de 05-09-02
+					 select p.codcliente, c.nome, max(p.valor)
+					 from pedidos p, clientes c
+					 where p.codcliente = c.codigo
+					  	   and p.data > '200-09-05'
+					 group by p.codcliente, c.nome
+					 having max(p.valor) >=  400;
+					 
+					 
+					 
+					 
+

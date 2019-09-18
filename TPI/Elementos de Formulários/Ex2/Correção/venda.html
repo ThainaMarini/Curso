@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<form action="venda.php" method="post">
+<table width="500" border="1" align="center">
+  <tr>
+    <td colspan="2" align="center"><strong>FORMULÁRIO PARA VENDA DE PRODUTOS</strong></td>
+    </tr>
+  <tr>
+    <td width="150">Descrição:</td>
+    <td width="334"><input type="text" name="descricao" size="50" /></td>
+  </tr>
+  <tr>
+    <td>Preço:</td>
+    <td><input type="text" name="preco" size="20" /></td>
+  </tr>
+  <tr>
+    <td>Forma de pagamento:</td>
+    <td>
+    	<select name="pagto">
+        	<option value="0">Selecione a Forma de Pagamento</option>
+        	<option value="vista">À Vista</option>
+            <option value="boleto">Boleto</option>
+            <option value="debito">Cartão de Débito</option>
+            <option value="credito">Cartão de Crédito</option>
+        </select></td>
+  </tr>
+  <tr>
+    <td>Número de parcelas:</td>
+    <td>
+    	<select name="parc">
+        	<option value="0">Número de Parcelas</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+        </select>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center"><input type="submit" value="Realizar Venda" /></td>
+    </tr>
+</table>
+</form>
+</body>
+</html>
